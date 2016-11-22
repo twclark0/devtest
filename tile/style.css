@@ -1,0 +1,25 @@
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px 0;
+}
+.video-25 {
+  width: 24%;
+  display: inline-block;
+  vertical-align: top;
+    transition: 1s;
+}
+.content-75 {
+    width: 74%;
+    display: inline-block;
+    padding-left: 15px;
+      transition: 1s;
+}
+.video-100 {
+  width: 100%;
+  transition: 1s;
+}
+.content-100 {
+  width: 100%;
+  transition: 1s;
+}

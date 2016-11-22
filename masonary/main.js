@@ -55,7 +55,7 @@ function load() {
   printDOM();
 }
 
-// call.open("GET", "masonry-data.json");
+// call.open("GET", "../masonry-data.json");
 // call.onload = function() {
 // 	if (call.status >=200 && call.status < 400) {
 // 		data = JSON.parse(call.responseText);
