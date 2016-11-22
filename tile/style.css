@@ -23,3 +23,11 @@
   width: 100%;
   transition: 1s;
 }
+@media (max-width: 950px) {
+  .video-25 {
+    width: 100%;
+  }
+  .content-75 {
+      width: 100%;
+  }
+}

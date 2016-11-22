@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mofed React</title>
+    <link rel="stylesheet" href="../style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+    </div>
+    <script src="https://npmcdn.com/react@15.3.2/dist/react-with-addons.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+
+    <script type="text/babel">
+
+      class Tiles extends React.Component {
+        constructor(props) {
+          super();
+          this.state = {
+            initial : 5,
+            hide : false,
+            tileArray : []
+          }
+        }
+        load() {
+            this.setState ({
+              initial : this.state.initial + 4,
+              hide : true
+            });
+        }
+
+        render() {
+          const tiles = {
+          	"tiles": [
+          		{
+          			"heading": "Etiam Ipsum Euismod",
+          			"content": "Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+          			"image": "http://placehold.it/350x150",
+          			"meta": "Fringilla Commodo"
+          		},
+          		{
+          			"heading": "Dolor Ipsum Sollicitudin",
+          			"content": "Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.",
+          			"image": "http://placehold.it/350x150",
+          			"meta": "Pharetra Ultricies"
+          		},
+          		{
+          			"heading": "Aenean lacinia bibendum nulla sed consectetur.",
+          			"content": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.",
+          			"image": "",
+          			"meta": "Tristique Sem"
+          		},
+          		{
+          			"heading": "Elit Porta Tellus Ultricies",
+          			"content": "Vestibulum id ligula porta felis euismod semper. Etiam porta sem malesuada magna mollis euismod.",
+          			"image": "http://placehold.it/350x150",
+          			"meta": "Parturient Ipsum"
+          		},
+          		{
+          			"heading": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+          			"content": "Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.",
+          			"image": "",
+          			"meta": "Mollis Adipiscing"
+          		},
+          		{
+          			"heading": "Mattis Ridiculus",
+          			"content": "Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur.",
+          			"image": "http://placehold.it/350x150",
+          			"meta": ""
+          		},
+          		{
+          			"heading": "Vehicula Mattis Fringilla",
+          			"content": "Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue.",
+          			"image": "http://placehold.it/350x150",
+          			"meta": "Aenean Lorem"
+          		},
+          		{
+          			"heading": "Venenatis Pharetra Purus Nullam",
+          			"content": "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
+          			"image": "",
+          			"meta": "Vulputate Mollis"
+          		},
+          		{
+          			"heading": "Risus Tristique Cras",
+          			"content": "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.",
+          			"image": "http://placehold.it/350x150",
+          			"meta": "Bibendum Condimentum"
+          		}
+          	]
+          };
+          const tile = tiles.tiles.splice(0,this.state.initial).map((item, index) => {
+              if (item.image) {
+                return (
+                  <div key={index} className={"tile"}>
+                    <img src={item.image} />
+                    <h2>{item.heading}</h2>
+                    <p>{item.content}</p>
+                    <h4>{item.meta}</h4>
+                  </div>
+              );
+            }
+            else {
+              return (
+                <div key={index} className={"tile"}>
+                  <div className="bar"></div>
+                  <h2>{item.heading}</h2>
+                  <p>{item.content}</p>
+                  <h4>{item.meta}</h4>
+                </div>
+              );
+            }
+          });
+
+          const none = this.state.hide ? {display : "none"} : { display : "block"};
+
+          return (
+            <div>
+              <div className={"div1"}>{tile}</div>
+              <button style={none} onClick={this.load.bind(this)}>Load More</button>
+            </div>
+          )
+        }
+      }
+
+          ReactDOM.render(
+            <Tiles />,
+            document.getElementById('container')
+          );
+
+
+    </script>
+  </body>
+</html>

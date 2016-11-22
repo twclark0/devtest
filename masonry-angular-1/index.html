@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+  <head>
+    <meta charset="utf-8">
+    <title>Mofed Angular</title>
+    <link rel="stylesheet" href="../style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
+  <body ng-controller="mainCtrl">
+    <div class="div1">
+      <div ng-repeat= "tile in tiles.tiles | limitTo:initial" class="tile">
+          <img ng-if="tile.image" src={{tile.image}} />
+          <div ng-if="!tile.image" class="bar"></div>
+          <h2>{{tile.heading}}</h2>
+          <p>{{tile.content}}</p>
+          <h4>{{tile.meta}}</h4>
+        </div>
+      </div>
+    <button ng-hide="hide" ng-click="load()">Load More</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

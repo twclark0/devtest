@@ -47,14 +47,20 @@ button {
   cursor: pointer;
 }
 @media (max-width: 950px) {
-  div#div1 {
+  div.div1 {
       max-width: 100%;
       padding: 0 25px;
   }
 }
 @media (max-width: 825px) {
-  div#div1 {
+  div.div1 {
     column-count: 1;
+  }
+  .tile {
+    display: block;
+    max-width: 350px;
+    margin: auto;
+    margin-bottom: 20px;
   }
 }
 @media (max-width: 450px) {
